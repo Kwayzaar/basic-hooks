@@ -1,27 +1,33 @@
 import React, { useState, useEffect } from 'react'
 
-const quoteURL = "https://api.taylor.rest/"
-const imgURL = "https://api.taylor.rest/image"
+const baseURL = "https://rickandmortyapi.com/api"
+// const imgURL = "https://api.taylor.rest/image"
 
 export default function Data() {
-    const [quote,setQuote] = useState("")
-    const [image, setImage] = useState("")
+    const [characters,setCharacter] = useState("")
+    // const [image, setImage] = useState("")
     
-    const fetchQuote = () => {
-        fetch(quoteURL)
+    const fetchCharacter = () => {
+        fetch(baseURL)
         .then(resp => resp.json())
-        .then(quote => setQuote(quote.quote))
+        .then(console.log)
+        .then(characters => setCharacter(characters))
     }
 
-    const fetchImage = () => {
-        fetch(imgURL)
-        .then(resp => resp.json())
-        .then(quote => setImage(image.url))
-    }
+    // const fetchImage = () => {
+    //     fetch(imgURL)
+    //     .then(resp => resp.json())
+    //     .then(quote => setImage(image.url))
+    // }
+
+    useEffect(() => {
+      fetchCharacter()
+      // fetchImage()
+    }, [])
 
     return (
         <div>
-            <h3>***Insert Taylor Swift Quote Here***</h3>
+            <h3>{ characters }</h3>
             <img alt="taylor" />
         </div>
     )
