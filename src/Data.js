@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react'
+import CharacterContainer from './components/CharacterContainer'
 
-const baseURL = "https://rickandmortyapi.com/api"
+const baseURL = "https://rickandmortyapi.com/api/character"
 // const imgURL = "https://api.taylor.rest/image"
 
 export default function Data() {
-    const [characters,setCharacter] = useState("")
+    const [characters,setCharacter] = useState()
     // const [image, setImage] = useState("")
     
     const fetchCharacter = () => {
         fetch(baseURL)
         .then(resp => resp.json())
-        .then(console.log)
         .then(characters => setCharacter(characters))
+        // .then(console.log)
     }
 
     // const fetchImage = () => {
@@ -21,14 +22,14 @@ export default function Data() {
     // }
 
     useEffect(() => {
+      console.log('use effect ran')
       fetchCharacter()
       // fetchImage()
     }, [])
 
     return (
         <div>
-            <h3>{ characters }</h3>
-            <img alt="taylor" />
+          <CharacterContainer characters={characters} />
         </div>
     )
 }
