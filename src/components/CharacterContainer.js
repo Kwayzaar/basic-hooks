@@ -9,10 +9,13 @@ function CharacterContainer({ characters }) {
       character={ character }
     />
   })
-  
+
+  console.log(characters)
+
   return (
     <div>
-      { displayCharacters() }
+      {displayCharacters()}
+      {/* { characters ? displayCharacters() : null } */}
     </div>
   )
 }

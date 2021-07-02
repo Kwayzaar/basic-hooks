@@ -9,29 +9,21 @@ const baseURL = "https://rickandmortyapi.com/api/character"
 
 function App() {
 
-  const [characters,setCharacter] = useState([])
+  const [characters,setCharacters] = useState([])
     
-  
+  const getCharacters = () => {
+    fetch(baseURL)
+    .then(response => response.json())
+    .then(characters => setCharacters(characters.results))
+  }
+
   useEffect(() => {
-    // const fetchCharacter = () => {
-        fetch(baseURL)
-        .then(resp => resp.json())
-        // .then(console.log)
-        .then(characters => setCharacter(characters))
-        // .then(console.log)
-    // }
-    // fetchCharacter()
-    // console.log('use effect ran')
-  }, [characters])
+    getCharacters()
+  }, [])
 
   return (
     <div className="App">
-      {/* <Counter />
-      <Data /> */}
-      <CharacterContainer 
-            // value={characters.results}
-            characters={characters.results} 
-          />
+      <CharacterContainer characters={characters} />
     </div>
   );
 }
