@@ -1,5 +1,6 @@
 import React from 'react'
-import CharacterCard from './CharacterCard'
+import CharacterCard from './CharacterCards/CharacterCard'
+// import "tailwindcss/tailwind.css"
 
 function CharacterContainer({ characters }) {
 
