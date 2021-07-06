@@ -1,5 +1,7 @@
 import React from 'react'
-import CharacterCard from './CharacterCards/CharacterCard'
+import './CharacterContainer.css'
+import CharacterCard from '../CharacterCards/CharacterCard'
+import Dropdown from '../Dropdown/Dropdown'
 // import "tailwindcss/tailwind.css"
 
 function CharacterContainer({ characters }) {
@@ -14,10 +16,14 @@ function CharacterContainer({ characters }) {
   console.log(characters)
 
   return (
-    <div>
-      {displayCharacters()}
-      {/* { characters ? displayCharacters() : null } */}
-    </div>
+    <main>
+      <Dropdown />
+      <div class="card-container">
+        {displayCharacters()}
+        {/* { characters ? displayCharacters() : null } */}
+      </div>
+      
+    </main>
   )
 }
 

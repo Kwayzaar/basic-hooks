@@ -1,18 +1,20 @@
 header {
   margin: 0;
   padding: 0;
+  width: 100%;
 }
 
 ul {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  width: 100%;
   display: flex;
   flex-direction: row;
   list-style-type: none;
   justify-content: space-between;
 }
-
-li {
-  /* flex */
+div.header-bar, header.header, nav {
+  width: 100%;
 }
+
